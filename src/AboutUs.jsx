@@ -1,7 +1,9 @@
 const AboutUs = ()=> {
   return (
     <div>
-      TODO: Add some information about Us!
+      <h1>About Us</h1>
+      <h2>Cohort 2307's Listings</h2>
+
     </div>
   );
 };

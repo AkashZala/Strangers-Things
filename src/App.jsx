@@ -57,6 +57,12 @@ function App() {
     navigate(`/posts/${post._id}`);
   };
 
+  const deletePost = async (post) => {
+    const response = await api.deletePost(post)
+    setPosts(posts.filter(_post => _post._id !==post._id))
+    navigate('/posts');
+  }
+
 
   return (
     <>
@@ -87,7 +93,7 @@ function App() {
       }
       <Posts posts={posts} auth={auth} />
       <Routes>
-        <Route path='/posts/:id' element={<Post posts={posts} auth={auth} />} />
+        <Route path='/posts/:id' element={<Post posts={posts} auth={auth} deletePost = { deletePost }/>} />
         <Route path='/about_us' element={<AboutUs />} />
         <Route path='/contact_us' element={<ContactUs />} />
       </Routes>

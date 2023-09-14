@@ -60,7 +60,7 @@ function App() {
   const deletePost = async (post) => {
     const response = await api.deletePost(post)
     setPosts(posts.filter(_post => _post._id !==post._id))
-    navigate('/posts');
+    navigate('/');
   }
 
 

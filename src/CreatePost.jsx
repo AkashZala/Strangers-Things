@@ -5,12 +5,13 @@ const CreatePost = ({ createPost })=> {
   const [price, setPrice] = useState(0);
   const [description, setDescription] = useState('');
   const [title, setTitle] = useState('');
+  const [location, setLocation] = useState('')
   const [error, setError] = useState('');
 
   const submit = async(ev)=> {
     ev.preventDefault();
     try {
-      const post = {price, title, description };
+      const post = {price, title, description, location };
       await createPost(post);
     }
     catch(ex){
@@ -28,9 +29,10 @@ const CreatePost = ({ createPost })=> {
         {
           error ? JSON.stringify(error, null, 2) : null
         }
-        <input placeholder='title' onChange={ev => setTitle(ev.target.value)} />
-        <input placeholder='description' onChange={ev => setDescription(ev.target.value)} />
-        <input placeholder='price' onChange={ev => setPrice(ev.target.value)} />
+        <input name='title' placeholder='title' onChange={ev => setTitle(ev.target.value)} />
+        <input name='description' placeholder='description' onChange={ev => setDescription(ev.target.value)} />
+        <input name='price' placeholder='price' onChange={ev => setPrice(ev.target.value)} />
+        <input name='location' placeholder='location' onChange={event => setLocation(event.target.value)}/>
         <button>Create</button>
       </form>
       <Link to='/'>Cancel</Link>

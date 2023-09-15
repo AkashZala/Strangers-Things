@@ -28,6 +28,9 @@
 - [x] After a user deletes their posts, they should be navigated back to the / page.
 - [x] A user should be able to update their posts on the detail page. 
 - [x] After a user updates their post, they should be navigated back to the / page.
+- [x] A user should be able to add a location to their posts (see api documentation).
+- [x] The location should appear in the post listing
+- [x] The welcome message should show the number of posts the logged in user has.
 
 - [/] A user should see some content on the about us page.
 - [/] A user should be able to navigate to a contact us page.
@@ -35,11 +38,6 @@
 - [?] Prices which are not numbers, should be displayed correctly.
 
 - [] A user should be able to navigate to a **most expensive post** page which shows the post with the highest price.
-
-- [] A user should be able to add a location to their posts (see api documentation).
-- [] The location should appear in the post listing
-
-- [x] The welcome message should show the number of posts the logged in user has.
 
 - [] A user should be able to view the site on mobile device.
 - [] The site should be deployed

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useNavigate, useParams, Link, Routes, Route } from 'react-router-dom';
 import api from './api';
 import AuthForm from './AuthForm';
 import CreatePost from './CreatePost';
@@ -7,7 +8,6 @@ import Post from './Post';
 import AboutUs from './AboutUs';
 import ContactUs from './ContactUs';
 
-import { useNavigate, useParams, Link, Routes, Route } from 'react-router-dom';
 
 function App() {
   const [auth, setAuth] = useState({});

@@ -1,9 +1,15 @@
-import { useState, useEffect } from 'react'
-import { useParams, Link } from 'react-router-dom';
+import { useParams, useLocation, Link } from 'react-router-dom';
 import UpdateForm from './UpdateForm';
 
-const Post = ({ posts, auth, deletePost, updatePost }) => {
-  const { id } = useParams();
+const Post = ({ posts, auth, deletePost, updatePost, expId }) => {
+  const { pathname } = useLocation();
+  let id;
+  if (pathname === '/posts/most_expensive') {
+    id = expId;
+  } else {
+    id = useParams().id;
+  }
+
   const post = posts.find(post => post._id === id);
   if (!post) {
     return null;
@@ -24,6 +30,7 @@ const Post = ({ posts, auth, deletePost, updatePost }) => {
           </button>
         </div>
         : ''}
+        <Link to='/posts'>Back to All Posts</Link>
     </div>
   );
 };

@@ -1,5 +1,10 @@
-const MostExpensive = ({ posts }) => {
+import { Link } from "react-router-dom";
+import Post from "./Post";
 
+const MostExpensive = ({ posts, auth, deletePost, updatePost }) => {
+    if (!posts) {
+        return null;
+    }
     const prices = posts.map(post => {
         if (post.price.includes("$")) {
             return post.price.slice(1);
@@ -14,7 +19,7 @@ const MostExpensive = ({ posts }) => {
             return a - b
         })
 
-    const post = posts.find(post => {
+    const expensivePost = posts.find(post => {
         if (post.price.includes("$")) {
             return post.price.slice(1) === prices[prices.length - 1]
         } else {
@@ -22,18 +27,15 @@ const MostExpensive = ({ posts }) => {
         }
     });
 
-    console.log(post)
-
-    if (!post) {
+    if (!expensivePost) {
         return null;
-    }
-    else {
+    } else {
+        const expId = expensivePost._id;
+
         return (
             <div>
-                <h1>SO EXPENSIVE WOW</h1>
-                <h1>{post.title} ({isNaN(post.price * 1) === true ? post.price : `$${(post.price * 1).toFixed(2)}`})</h1>
-                <h2>{post.description}</h2>
-                <p>Location? {post.location === '[On Request]' ? 'Available Upon Request' : post.location}</p>
+                <h1>Today's Most Expensive Post</h1>
+                <Post posts={posts} auth={auth} deletePost={deletePost} updatePost={updatePost} expId={expId} />
             </div>
         );
     }

@@ -84,17 +84,19 @@ function App() {
             <h2>
               {`
              (Current Active Posts: ${posts.filter((post) => {
-                return post.author.username === auth.username
+                return post.author._id === auth._id
               }).length})
             `}
             </h2>
 
             <hr />
-            <div>
+            <nav>
+              <Link to='/posts'>All Posts</Link>
+              <Link to='/posts/most_expensive'>Most Expensive Post</Link>
               <Link to='/posts/create'>Create A Post</Link>
               <Link to='/about_us'>About Us</Link>
               <Link to='/contact_us'>Contact Us</Link>
-            </div>
+            </nav>
 
             <Routes>
               <Route path='/posts/create' element={<CreatePost createPost={createPost} />} />
@@ -102,20 +104,23 @@ function App() {
           </div>
         ) : (
           <>
-            <AuthForm submit={register} txt='Register' />
-            <AuthForm submit={login} txt='Login' />
-            <Link to='/about_us'>About Us</Link>
-            <Link to='/contact_us'>Contact Us</Link>
+            <AuthForm submit={register} txt='Register' label='New? Register Now To Access More Information'/>
+            <AuthForm submit={login} txt='Login' label='Already Registered? Login Now!'/>
+            <nav>
+              <Link to='/posts'>All Posts</Link>
+              <Link to='/posts/most_expensive'>Most Expensive Post</Link>
+              <Link to='/about_us'>About Us</Link>
+              <Link to='/contact_us'>Contact Us</Link>
+            </nav>
           </>
         )
       }
-      <Link to='/most_expensive'>Most Expensive Posting</Link>
-      <Posts posts={posts} auth={auth} />
       <Routes>
+        <Route path='/posts' element={<Posts posts={posts} auth={auth} />} />
         <Route path='/posts/:id' element={<Post posts={posts} auth={auth} deletePost={deletePost} updatePost={updatePost} />} />
         <Route path='/about_us' element={<AboutUs />} />
         <Route path='/contact_us' element={<ContactUs />} />
-        <Route path='/most_expensive' element={<MostExpensive elements posts={posts}/> }/>
+        <Route path='/posts/most_expensive' element={<MostExpensive posts={posts} auth={auth} deletePost={deletePost} updatePost={updatePost} />} />
       </Routes>
     </>
   )

@@ -25,6 +25,7 @@ const CreatePost = ({ createPost }) => {
   };
   return (
     <div>
+      <h1>Fill Out This Form to Create A New Listing</h1>
       <form onSubmit={submit}>
         {
           error ? JSON.stringify(error, null, 2) : null

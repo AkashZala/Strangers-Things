@@ -7,12 +7,16 @@ a {
   color: rgb(217, 142, 217);
 }
 
+button {
+  margin: 1rem;
+}
+
 form {
   display: flex;
   flex-direction: column;
 }
 
-form > * {
+form>* {
   margin: 0.5rem;
 }
 

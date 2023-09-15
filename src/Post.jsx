@@ -11,9 +11,9 @@ const Post = ({ posts, auth, deletePost, updatePost }) => {
 
   return (
     <div>
-      <h1>{post.title} ({post.price})</h1>
+      <h1>{post.title} ({isNaN(post.price * 1) === true ? post.price : `$${(post.price * 1).toFixed(2)}`})</h1>
       <h2>{post.description}</h2>
-      <p>Where? {post.location}</p>
+      <p>Location? {post.location === '[On Request]' ? 'Available Upon Request' : post.location}</p>
 
       {auth._id === post.author._id ?
         <div>

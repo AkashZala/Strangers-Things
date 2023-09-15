@@ -8,7 +8,6 @@ import Post from './Post';
 import AboutUs from './AboutUs';
 import ContactUs from './ContactUs';
 
-
 function App() {
   const [auth, setAuth] = useState({});
   const [posts, setPosts] = useState([]);
@@ -76,22 +75,25 @@ function App() {
       {
         auth.username ? (
           <div>
-            <h1>
+            <div>
+              <button onClick={logout}>Logout</button>
+            </div>
+
+            <h1>{`Welcome ${auth.username}`}</h1>
+            <h2>
               {`
-             Welcome ${auth.username} (Active Posts: 
-              ${posts.filter((post) => {
+             (Currently ${posts.filter((post) => {
                 return post.author.username === auth.username
-              }).length
-                })
-            `
-              }
-              <div>
-                <button onClick={logout}>Logout</button>
-              </div>
-            </h1>
-            <Link to='/posts/create'>Create A Post</Link>
-            <Link to='/about_us'>About Us</Link>
-            <Link to='/contact_us'>Contact Us</Link>
+              }).length} Active Posts)
+            `}
+            </h2>
+
+            <hr />
+            <div>
+              <Link to='/posts/create'>Create A Post</Link>
+              <Link to='/about_us'>About Us</Link>
+              <Link to='/contact_us'>Contact Us</Link>
+            </div>
 
             <Routes>
               <Route path='/posts/create' element={<CreatePost createPost={createPost} />} />

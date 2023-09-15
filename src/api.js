@@ -70,12 +70,12 @@ const deletePost = async (post) => {
 const updatePost = async (post) => {
   const token = window.localStorage.getItem('token');
   const response = await axios.patch(`${BASE_URL}/posts/${post.id}`,
-  {post},
-  {
-    headers: {
-      authorization: `Bearer ${token}`
-    }
-  });
+    { post },
+    {
+      headers: {
+        authorization: `Bearer ${token}`
+      }
+    });
   return response;
 }
 

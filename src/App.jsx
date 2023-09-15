@@ -63,6 +63,13 @@ function App() {
     navigate('/');
   }
 
+  const updatePost = async (post) => {
+    const response = await api.updatePost(post)
+    const updatedPost = response.data.data.post;
+    setPosts(posts.map(post => post._id !== updatedPost._id ? post : updatedPost));
+    navigate('/');
+  }
+
   return (
     <>
       <h1><Link to='/'>Strangers Things ({posts.length})</Link></h1>
@@ -101,7 +108,7 @@ function App() {
       }
       <Posts posts={posts} auth={auth} />
       <Routes>
-        <Route path='/posts/:id' element={<Post posts={posts} auth={auth} deletePost={deletePost} />} />
+        <Route path='/posts/:id' element={<Post posts={posts} auth={auth} deletePost={deletePost} updatePost={updatePost} />} />
         <Route path='/about_us' element={<AboutUs />} />
         <Route path='/contact_us' element={<ContactUs />} />
       </Routes>

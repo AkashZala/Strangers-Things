@@ -3,11 +3,11 @@ import axios from 'axios';
 const COHORT_NAME = '2307-FTB-ET-WEB-FT'
 const BASE_URL = `https://strangers-things.herokuapp.com/api/${COHORT_NAME}`
 
-const logout = ()=> {
+const logout = () => {
   window.localStorage.removeItem('token');
 }
 
-const register = async(credentials)=> {
+const register = async (credentials) => {
   const response = await axios.post(
     `${BASE_URL}/users/register`,
     { user: credentials }
@@ -18,14 +18,14 @@ const register = async(credentials)=> {
 
 };
 
-const loginWithToken = async()=> {
+const loginWithToken = async () => {
   const token = window.localStorage.getItem('token');
-  if(token){
+  if (token) {
     const response = await axios.get(
       `${BASE_URL}/users/me`,
       {
         headers: {
-          authorization: `Bearer ${token }`
+          authorization: `Bearer ${token}`
         }
       }
     );
@@ -34,40 +34,52 @@ const loginWithToken = async()=> {
   throw 'no token';
 };
 
-const fetchPosts = async()=> {
+const fetchPosts = async () => {
   const response = await axios.get(
     `${BASE_URL}/posts`,
   );
   return response.data.data.posts;
 };
 
-const createPost = async(post)=> {
+const createPost = async (post) => {
   const token = window.localStorage.getItem('token');
   const response = await axios.post(
     `${BASE_URL}/posts`,
     { post },
     {
       headers: {
-        authorization: `Bearer ${ token }`
+        authorization: `Bearer ${token}`
       }
     }
   );
   return response.data.data.post;
 };
 
-const deletePost = async(post) => {
+const deletePost = async (post) => {
   const token = window.localStorage.getItem('token');
   await axios.delete(
     `${BASE_URL}/posts/${post._id}`,
     {
       headers: {
-        authorization: `Bearer ${ token }`
+        authorization: `Bearer ${token}`
       }
     }
-    )
+  )
 }
 
-const login = async(credentials)=> {
+const updatePost = async (post) => {
+  const token = window.localStorage.getItem('token');
+  const response = await axios.patch(`${BASE_URL}/posts/${post.id}`,
+  {post},
+  {
+    headers: {
+      authorization: `Bearer ${token}`
+    }
+  });
+  return response;
+}
+
+const login = async (credentials) => {
   const response = await axios.post(
     `${BASE_URL}/users/login`,
     { user: credentials }
@@ -84,7 +96,8 @@ const api = {
   loginWithToken,
   fetchPosts,
   createPost,
-  deletePost
+  deletePost,
+  updatePost
 
 };
 

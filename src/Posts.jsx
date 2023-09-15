@@ -7,7 +7,7 @@ const Posts = ({ posts, auth })=> {
         posts.map( post => {
           return (
             <li key={ post._id } className={ post.author._id === auth._id ? 'mine': ''}>
-              <Link to={`/posts/${post._id}`}>{ `${post.title} (${post.author.username})` }</Link> ${ (post.price*1).toFixed(2) }
+              <Link to={`/posts/${post._id}`}>{ `${post.title} (${post.author.username})` }</Link> { isNaN(post.price*1) === true ? post.price : `$${(post.price*1).toFixed(2)}` }
             </li>
           );
         })

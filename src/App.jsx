@@ -7,6 +7,7 @@ import Posts from './Posts';
 import Post from './Post';
 import AboutUs from './AboutUs';
 import ContactUs from './ContactUs';
+import MostExpensive from './MostExpensive';
 
 function App() {
   const [auth, setAuth] = useState({});
@@ -82,9 +83,9 @@ function App() {
             <h1>{`Welcome ${auth.username}`}</h1>
             <h2>
               {`
-             (Currently ${posts.filter((post) => {
+             (Current Active Posts: ${posts.filter((post) => {
                 return post.author.username === auth.username
-              }).length} Active Posts)
+              }).length})
             `}
             </h2>
 
@@ -108,11 +109,13 @@ function App() {
           </>
         )
       }
+      <Link to='/most_expensive'>Most Expensive Posting</Link>
       <Posts posts={posts} auth={auth} />
       <Routes>
         <Route path='/posts/:id' element={<Post posts={posts} auth={auth} deletePost={deletePost} updatePost={updatePost} />} />
         <Route path='/about_us' element={<AboutUs />} />
         <Route path='/contact_us' element={<ContactUs />} />
+        <Route path='/most_expensive' element={<MostExpensive elements posts={posts}/> }/>
       </Routes>
     </>
   )

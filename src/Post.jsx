@@ -30,7 +30,7 @@ const Post = ({ posts, auth, deletePost, updatePost, expId }) => {
           </button>
         </div>
         : ''}
-        <Link to='/posts'>Back to All Posts</Link>
+        <Link to='/'>Close</Link>
     </div>
   );
 };

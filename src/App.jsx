@@ -91,7 +91,6 @@ function App() {
 
             <hr />
             <nav>
-              <Link to='/posts'>All Posts</Link>
               <Link to='/posts/most_expensive'>Most Expensive Post</Link>
               <Link to='/posts/create'>Create A Post</Link>
               <Link to='/about_us'>About Us</Link>
@@ -104,10 +103,9 @@ function App() {
           </div>
         ) : (
           <>
-            <AuthForm submit={register} txt='Register' label='New? Register Now To Access More Information'/>
-            <AuthForm submit={login} txt='Login' label='Already Registered? Login Now!'/>
+            <AuthForm submit={register} txt='Register' label='New? Register Now To Access More Information' />
+            <AuthForm submit={login} txt='Login' label='Already Registered? Login Now!' />
             <nav>
-              <Link to='/posts'>All Posts</Link>
               <Link to='/posts/most_expensive'>Most Expensive Post</Link>
               <Link to='/about_us'>About Us</Link>
               <Link to='/contact_us'>Contact Us</Link>
@@ -115,13 +113,14 @@ function App() {
           </>
         )
       }
-      <Routes>
-        <Route path='/posts' element={<Posts posts={posts} auth={auth} />} />
+      
+      <Routes {...window.scroll(0,0)}>
         <Route path='/posts/:id' element={<Post posts={posts} auth={auth} deletePost={deletePost} updatePost={updatePost} />} />
         <Route path='/about_us' element={<AboutUs />} />
         <Route path='/contact_us' element={<ContactUs />} />
         <Route path='/posts/most_expensive' element={<MostExpensive posts={posts} auth={auth} deletePost={deletePost} updatePost={updatePost} />} />
       </Routes>
+      <Posts posts={posts} auth={auth} />
     </>
   )
 }

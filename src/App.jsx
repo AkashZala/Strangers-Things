@@ -15,7 +15,6 @@ function App() {
 
   const navigate = useNavigate();
   const { pathname } = useLocation();
-  console.log(pathname)
 
   useEffect(() => {
     const fetchPosts = async () => {

@@ -11,10 +11,12 @@ const Posts = ({ posts, auth }) => {
             return (
               <div key={post._id} className={post.author._id === auth._id ? 'mine posts' : 'posts'}>
                 <Link to={`/posts/${post._id}`}>
+                  <div className='postsDet'>
                   <h3>{post.title}</h3>
-                  <p>by: {post.author.username}</p>
-                  <p>Price: {isNaN(post.price * 1) === true ? post.price : `$${(post.price * 1).toFixed(2)}`}</p>
+                  <p>{isNaN(post.price * 1) === true ? post.price : `$${(post.price * 1).toFixed(2)}`}</p>
                   <p>{post.location === '[On Request]' ? 'Location Available Upon Request' : `Location: ${post.location}`}</p>
+                  </div>
+                  <h3>{`[${post.author.username}]`}</h3>
                 </Link>
               </div>
             );

@@ -133,15 +133,17 @@ nav>* {
 
 .posts {
   width: calc(100% / 2 - .2rem);
-  border: 1px solid whitesmoke;
+  border: 2px solid whitesmoke;
   border-radius: 1rem;
+  box-shadow: 1px 1px 3px black;
   text-align: center;
   padding: .5rem;
   margin: .1rem;
+  background-color: rgba(255, 255, 255, 0.47);
 }
 
-.posts>*:hover {
-  color: white;
+.posts>a:hover {
+  color: rgb(92, 97, 232);
   transition: .3s;
 }
 
@@ -153,7 +155,7 @@ nav>* {
 }
 
 .posts>a>* {
-  margin: 1rem;
+  margin: 1rem; 
 }
 
 .posts>a>div>h3 {

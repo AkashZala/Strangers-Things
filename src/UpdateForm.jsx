@@ -26,7 +26,6 @@ const UpdateForm = ({ id, posts, updatePost }) => {
     const saveUpdate = async (event) => {
         event.preventDefault();
         const post = { id, title, description, price, location };
-        console.log(post)
         try {
             await updatePost(post);
         } catch (err) {

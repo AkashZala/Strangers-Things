@@ -9,12 +9,12 @@ const ContactUs = () => {
             <h2>or Get in touch by filling out this form!</h2>
             <div id='contactFormContainer'>
                 <form id='contactForm' onSubmit={event => event.preventDefault}>
-                    <label for='uname'>Enter Name:</label>
+                    <label>Enter Name:</label>
                     <input type='text' id='uname' name='uname' placeholder="Name" />
-                    <label for='email'>Enter Email Address:</label>
+                    <label>Enter Email Address:</label>
                     <input type='email' id='email' name='email' placeholder="Email" />
-                    <label for='message'>Enter Message:</label>
-                    <textarea type='text' id='uname' name='uname' placeholder='Message' />
+                    <label>Enter Message:</label>
+                    <textarea type='text' id='message' name='message' placeholder='Message' />
                     <button type="submit">Submit</button>
                 </form>
             </div>

@@ -6,10 +6,10 @@ const ContactUs = () => {
     }
     return (
         <div className='contact'>
-            <h1>Contact Us</h1>
+            <h1>Questions? Contact Us</h1>
             <p>Send us an email: placeHolder@someEmail.com</p>
             <p>Give us a call: (XXX) XXX-XXXX</p>
-            <h2>or Get in touch by filling out this form!</h2>
+            <h2>or Send us message with this form!</h2>
             <div id='contactFormContainer'>
                 <form id='contactForm' onSubmit={handleSubmit}>
                     <label>Enter Name:</label>

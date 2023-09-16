@@ -33,7 +33,7 @@ const MostExpensive = ({ posts, auth, deletePost, updatePost }) => {
         const expId = expensivePost._id;
 
         return (
-            <div>
+            <div id='mostExpensive'>
                 <h1>Today's Most Expensive Post</h1>
                 <Post posts={posts} auth={auth} deletePost={deletePost} updatePost={updatePost} expId={expId} />
             </div>

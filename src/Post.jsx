@@ -16,21 +16,28 @@ const Post = ({ posts, auth, deletePost, updatePost, expId }) => {
   }
 
   return (
-    <div>
-      <h1>{post.title} ({isNaN(post.price * 1) === true ? post.price : `$${(post.price * 1).toFixed(2)}`})</h1>
-      <h2>{post.description}</h2>
-      <p>Location? {post.location === '[On Request]' ? 'Available Upon Request' : post.location}</p>
-
+    <div id='selectPost'>
+      <div id='post'>
+      <h1>{post.title}</h1>
+        <h2>User [{post.author.username}]</h2>
+        <h3>Price: {isNaN(post.price * 1) === true ? post.price : `$${(post.price * 1).toFixed(2)}`}</h3>
+        <p>Details: {post.description}</p>
+        <p>Location: {post.location === '[On Request]' ? 'Available Upon Request' : post.location}</p>
+     </div>
       {auth._id === post.author._id ?
-        <div>
-          <h2>Update Post</h2>
+        <div className='update'>
+          <h2>Update Post?</h2>
           <UpdateForm posts={posts} id={id} updatePost={updatePost} />
-          <button onClick={() => deletePost(post)}>
+          <div id='delete'>
+            <h2>Delete Post?</h2>
+          <button  onClick={() => deletePost(post)}>
             Delete Post
           </button>
+          </div>
         </div>
         : ''}
-        <Link to='/'>Close</Link>
+      <Link className='close' to='/'>&#8592;Close</Link>
+      <hr />
     </div>
   );
 };

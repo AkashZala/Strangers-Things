@@ -35,41 +35,38 @@ const UpdateForm = ({ id, posts, updatePost }) => {
     }
 
     return (
-        <div>
+        <div className='updatePost'>
             <form onSubmit={saveUpdate}>
                 {
                     error ? JSON.stringify(error, null, 2) : null
                 }
-                <label name={'title'}>
-                    <input
-                        value={title}
-                        onChange={event => setTitle(event.target.value)}
-                        placeholder='Update Title'
-                    />
-                </label>
-                <label name={'description'}>
-                    <input
-                        value={description}
-                        onChange={event => setDescription(event.target.value)}
-                        placeholder='Update Description'
-                    />
-                </label>
-                <label name={'price'}>
-                    <input
-                        value={price}
-                        onChange={event => setPrice(event.target.value)}
-                        placeholder='Update Price'
-                    />
-                </label>
-                <label name={'location'}>
-                    <input
-                        value={location}
-                        onChange={event => setLocation(event.target.value)}
-                        placeholder='Update Location' />
-                </label>
+                <input
+                    name={'title'}
+                    value={title}
+                    onChange={event => setTitle(event.target.value)}
+                    placeholder='Update Title'
+                />
+                <input
+                    name={'description'}
+                    value={description}
+                    onChange={event => setDescription(event.target.value)}
+                    placeholder='Update Description'
+                />
+                <input
+                    name={'price'}
+                    value={price}
+                    onChange={event => setPrice(event.target.value)}
+                    placeholder='Update Price'
+                />
+                <input
+                    name={'location'}
+                    value={location}
+                    onChange={event => setLocation(event.target.value)}
+                    placeholder='Update Location' />
+
                 <button type='submit'>Update Post</button>
             </form>
-        </div>
+        </div >
     );
 };
 

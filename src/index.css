@@ -35,7 +35,8 @@ body>div>div>h1 {
 #authForm>button,
 .createPost>form>button,
 .updatePost>form>button,
-#delete>button {
+#delete>button,
+#contactForm>button {
   width: 100px;
 }
 
@@ -161,21 +162,84 @@ nav>* {
   text-align: center;
 }
 
-#mostExpensive>h1, .about>h1 {
+#mostExpensive>h1,
+.about>h1,
+.contact>h1 {
   text-decoration: underline;
   margin: 1.5rem 0 0 1rem;
 }
 
-.about>h2 {
+.about>h2,
+.contact>h2 {
   text-align: center;
 }
 
-.about>p {
+.about>p,
+.contact>p {
   padding: 0 1rem 1rem 1rem;
+}
+
+#contactFormContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#contactForm {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  width: 50vw;
+
+}
+
+#contactForm>* {
+  margin: 0 0 1rem 0;
+
+}
+
+#contactForm>label {
+  margin-left: 1rem;
 }
 
 .close {
   margin: 1rem 0 1rem 2rem;
   padding: .2rem;
   border: 1px solid gray;
+}
+
+@media (max-width: 500px) {
+  nav {
+    flex-direction: column;
+  }
+
+  nav>* {
+    width: 100%;
+  }
+
+  #welcome {
+    margin: 0 1rem 0 1rem;
+    padding: 0;
+    text-align: center;
+  }
+
+  .postsContainer {
+    flex-direction: column;
+  }
+
+  .posts {
+    width: calc(100%)
+  }
+
+  #authForm,
+  .createPost>form,
+  .updatePost>form {
+    margin: 0 1rem 1rem 1rem;
+  }
+
+  #authForm>*,
+  .createPost>form>*,
+  .updatePost>form>* {
+    width: 200px;
+  }
 }

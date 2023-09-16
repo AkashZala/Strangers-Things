@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useNavigate, useParams, Link, Routes, Route, useLocation } from 'react-router-dom';
+import { useNavigate, Link, Routes, Route, useLocation } from 'react-router-dom';
 import api from './api';
 import AuthForm from './AuthForm';
 import CreatePost from './CreatePost';

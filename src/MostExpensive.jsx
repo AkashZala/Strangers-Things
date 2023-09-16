@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import Post from "./Post";
 
 const MostExpensive = ({ posts, auth, deletePost, updatePost }) => {

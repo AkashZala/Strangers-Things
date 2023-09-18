@@ -18,7 +18,7 @@ const Post = ({ posts, auth, deletePost, updatePost, expId }) => {
   return (
     <div id='selectPost'>
       <div id='post'>
-        <h1>{post.title}</h1>
+        <h1>{post.title === '' ? 'Untitled Post' : post.title}</h1>
         <h2>User [{post.author.username}]</h2>
         <h3>Price: {isNaN(post.price * 1) === true ? post.price : `$${(post.price * 1).toFixed(2)}`}</h3>
         <p>Details: {post.description}</p>

@@ -1,3 +1,4 @@
+Deployed Site: https://fancy-pika-7748af.netlify.app/
 # Strangers Things 
 
 - npm install
